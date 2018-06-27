@@ -1,0 +1,52 @@
+<Telcordia>
+ <Application>
+  <StartingDirectory>.</StartingDirectory>
+  <UseEmptyVersion>true</UseEmptyVersion>
+  <HideEmptyLists>true</HideEmptyLists>
+  <Logging
+   Help="This entire folder is required to be in the initial Configuration File as these variables are used by the Logging class.">
+   <EchoToScreen>True</EchoToScreen>
+   <EchoToFile>True</EchoToFile>
+   <MinutesBetweenLogFileRollover>60</MinutesBetweenLogFileRollover>
+   <EraseFileAtStartup>False</EraseFileAtStartup>
+   <AppendDateTimeToFileName>True</AppendDateTimeToFileName>
+   <DateTimeFormat>yyyy-MM-dd_HH-mm-ss</DateTimeFormat>
+   <FileName>adapter_1_logs</FileName>
+   <FileExtension>.log</FileExtension>
+   <LogLineFormat>%t -%m%n</LogLineFormat>
+   <MaxLogFileSize>10MB</MaxLogFileSize>
+   <MaxBackupIndex>5</MaxBackupIndex>
+   <ExclusionLevel>DEBUG</ExclusionLevel>
+   <FileFormat Note="You can replace the LogLineFormat above with this entry.">
+    <LogLineFormat>%d %-4r [%t] %-5p %c %x - %m%n</LogLineFormat>
+   </FileFormat>
+   <ScreenFormat Note="You can replace the LogLineFormat above with this entry.">
+    <LogLineFormat>%d %t - %m%n</LogLineFormat>
+   </ScreenFormat>
+  </Logging>
+  <RequestHandlerMapping>
+   <Mapping path="/MTOSI_Envelope/MTOSI_Body/getInventory/filter/includedObjectType[objectType=&quot;EH&quot;]"
+    handlerclass="com.ericsson.edr.testadapter.handler.EHHandler" />
+       <Mapping path="/MTOSI_Envelope/MTOSI_Body/getInventory/filter/includedObjectType[objectType=&quot;ME&quot;]"
+    handlerclass="com.ericsson.edr.testadapter.handler.UMTSHandler" />
+  </RequestHandlerMapping>
+  <DeviceInformation>
+   <Manufacturer>ALCATEL</Manufacturer>
+   <MdNm>MYEMS</MdNm>
+  </DeviceInformation>
+  <Connections>
+   <Socket>
+    <Interface>
+     <FactoryClass>com.telcordia.discoveryadapter.common.ConnectionFactory</FactoryClass>
+     <MinConnNbr>1</MinConnNbr>
+     <MaxConnNbr>5</MaxConnNbr>
+     <ConnectionHandleClass>com.example.DummyConnectionHandle</ConnectionHandleClass>
+    </Interface>
+   </Socket>
+  </Connections>
+ </Application>
+ <ReferenceData>
+  <Category />
+ </ReferenceData>
+ <EquipmentInfo></EquipmentInfo>
+</Telcordia>
